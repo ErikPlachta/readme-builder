@@ -1,0 +1,19 @@
+{
+  "name": "readme-builder",
+  "version": "1.0.0",
+  "description": "Build a professional readme via Node.js with prompts.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ErikPlachta/readme-builder.git"
+  },
+  "author": "Erik Plachta",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ErikPlachta/readme-builder/issues"
+  },
+  "homepage": "https://github.com/ErikPlachta/readme-builder#readme"
+}
