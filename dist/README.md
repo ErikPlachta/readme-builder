@@ -1,24 +1,21 @@
+# Testing a Title
 
+  ### Description
 
-    # dflk
+  Running a test to verify integrity of project
 
-    
-    ### Description
+  ## License
 
-    df
-    
-    ## License
+  None
 
-    None
-
-    ## About Me
+  ## About Me
       
-      - adf
-      - [GitHub.com/asdf]("https://github.com/asdf")
-      - Email: eflk@ddf.com
-            
-    ---
-    
-    &copy; 2022 by adf
+  - Erik Plachta
+  - [GitHub.com/erikplachta]("https://github.com/erikplachta")
+  - Email: erik@plachta.com
+        
+  ---
+  
+  &copy; 2022 by Erik Plachta
     
   

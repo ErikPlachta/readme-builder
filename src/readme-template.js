@@ -5,28 +5,25 @@ module.exports = readme_Data => {
   // destructure page data by section
   const { user_Data, project_Data } = readme_Data;
 
-  return `
+  return `# ${project_Data.title}
 
-    # ${project_Data.title}
+  ### Description
 
-    
-    ### Description
+  ${project_Data.description}
 
-    ${project_Data.description}
-    
-    ## License
+  ## License
 
-    ${project_Data.license}
+  ${project_Data.license}
 
-    ## About Me
+  ## About Me
       
-      - ${user_Data.name}
-      - [GitHub.com/${user_Data.github}]("https://github.com/${user_Data.github}")
-      - Email: ${user_Data.email}
-            
-    ---
-    
-    &copy; ${new Date().getFullYear()} by ${user_Data.name}
+  - ${user_Data.name}
+  - [GitHub.com/${user_Data.github}]("https://github.com/${user_Data.github}")
+  - Email: ${user_Data.email}
+        
+  ---
+  
+  &copy; ${new Date().getFullYear()} by ${user_Data.name}
     
   `;
 };
