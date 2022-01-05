@@ -8,23 +8,39 @@
 //----------------------------------------------------------------------------//
 //-- Imports
 
-
 //-- grabbing functions from generate-site with object destructing
-const { writeFile, copyFile } = require('./utils/generate-site.js');
+const { writeFile, copyFile } = require('./utils/generate-readme.js');
 
 const inquirer = require('inquirer');
-const generatePage = require('./src/readme-template');
+const _generate_Readme = require('./src/readme-template.js');
+
+
+//----------------------------------------------------------------------------//
+//-- Global Variables
+
+//-- Array that holds user and project data
+var readme_Data = {
+  'user_Data':{},
+  'project_Data': {}
+};
 
 //----------------------------------------------------------------------------//
 //-- Getting User Data
 
-const get_User_Data = () => {
+const _get_User_Data = () => {
     /* 
         Uses inquirer.js to prompt user specific details.
     */
 
+    console.log(`
+      ======================
+      Enter User Information
+      ======================
+    `);
     
-    return inquirer.prompt([
+    return inquirer
+      .prompt([
+
         //-- Name
         {
           type: 'input',
@@ -39,6 +55,7 @@ const get_User_Data = () => {
             }
           }
         },
+
         //-- GitHub Username
         {
             type: 'input',
@@ -53,6 +70,7 @@ const get_User_Data = () => {
                 }
             }
         },
+
         //-- Email Address
         //-- TODO:: Make sure it knows it's an email address
         //-- TODO:: Pull and add to proper section ( Issue #8)
@@ -76,13 +94,20 @@ const get_User_Data = () => {
 //----------------------------------------------------------------------------//
 //-- Getting Readme Data
 
-const get_Readme_Data = () => {
+const _get_Project_Data = user_Data => {
     /* 
         Uses inquirer.js to prompt user for README specific details.
     */
 
 
-    return inquirer.prompt([
+    console.log(`
+      =========================
+      Enter Project Information
+      =========================
+    `);
+
+    return inquirer
+      .prompt([
       
       //-- Project Title
       //-- TODO:: Add license options ( see issue #7)
@@ -115,10 +140,16 @@ const get_Readme_Data = () => {
         },
         
         //-- License
+        //-- TODO:: Allow only 1
+        {
+          type: 'checkbox',
+          name: 'license',
+          message: 'What type of license does your project use? (Required)',
+          choices: ['MIT', '1', '2', '3']
+        },
         {
           type: 'input',
           name: 'license',
-          message: 'What type of license? (Required)',
           validate: licenseInput => {
             if (licenseInput) {
               return true;
@@ -128,7 +159,12 @@ const get_Readme_Data = () => {
             }
           }
         },
-    ]);
+    ])
+    .then( project_Data => {
+      portfolioData.projects.push(projectData);
+
+    })
+    ;
 };
 
 //----------------------------------------------------------------------------//
@@ -136,4 +172,34 @@ const get_Readme_Data = () => {
 
 //----------------------------------------------------------------------------//
 //-- Running Program
+
+
+//-- Get user specific info
+_get_User_Data()
+ 
+  //-- Get project specific info
+  .then(_get_Project_Data)
+  
+  //-- Prepare data to build README.md based on results
+  .then( results => {
+    return _generate_Readme(results);
+  })
+  
+  //-- Write readme file to ./dist/README.md
+  .then( readme_SRC => {
+    return writeFile(readme_SRC);
+  })
+
+  //-- If success, we take the writeFileResponse object provided by the writeFile()
+  // function's resolve() execution to log it, and then we return copyFile().
+  .then(writeFileResponse => {
+    console.log(writeFileResponse);
+    return copyFile();
+  })
+  //-- if it fails any-step along the way, catch error nd log here.
+  .catch(err => {
+    console.log("ERROR: ", err);
+  })
+;
+
 
