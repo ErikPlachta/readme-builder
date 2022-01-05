@@ -151,22 +151,10 @@ Enter Project Information
         message: 'Add a License:',
         choices: ['None','ISC', 'MIT', 'GNU']
       },
-      {
-        type: 'input',
-        name: 'license',
-        validate: licenseInput => {
-          if (licenseInput) {
-            return true;
-          } else {
-            console.log('Please enter your name!');
-            return false;
-          }
-        }
-      },
     ])
     .then( project_Data => {
-      readme_Data.project = project_Data;
-      readme_Data.user= user_Data;
+      readme_Data.project_Data = project_Data;
+      readme_Data.user_Data = user_Data;
 
       return readme_Data;
     })
@@ -191,7 +179,7 @@ function init() {
     //-- Get project specific info
     .then(_get_Project_Data)
 
-    //-- Prepare data to build README.md based on results
+    //-- Send data into template to build OBJ that will be used to write
     .then( readme_Data => {
       return _generate_Readme(readme_Data);
     })
