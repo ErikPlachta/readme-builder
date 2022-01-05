@@ -78,15 +78,19 @@ Enter User Information
             type: 'input',
             name: 'email',
             message: 'What is your email address? (Required)',
-            validate: emailInput => {
-              if (emailInput) {
+            validate: function(email) {
+              // Regex mail check (return true if valid mail)
+              let valid_Email = /^(([^<>()\[\]\.,;:\s@\"]+(\.[^<>()\[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()\.,;\s@\"]+\.{0,1})+([^<>()\.,;:\s@\"]{2,}|[\d\.]+))$/.test(email);
+              if (valid_Email){
                 return true;
-              } else {
-                console.log('Please enter your email address!');
+              }
+              else {
+                console.log('Please enter a valid email address!');
                 return false;
               }
-            }
-          }
+           }
+        }
+          
     ]);
 };
 
@@ -142,10 +146,10 @@ Enter Project Information
       //-- License
       //-- TODO:: Allow only 1
       {
-        type: 'checkbox',
+        type: 'list',
         name: 'license',
-        message: 'What type of license does your project use? (Required)',
-        choices: ['MIT', '1', '2', '3']
+        message: 'Add a License:',
+        choices: ['None','ISC', 'MIT', 'GNU']
       },
       {
         type: 'input',

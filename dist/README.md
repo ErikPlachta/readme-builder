@@ -21,12 +21,15 @@
         </nav>
       </div>
     </header>
-    <main class="container my-5"> 
+    <main class="container my-5">
+      
+      
     <section class="my-3" id="portfolio">
       <h2 class="text-dark bg-primary p-2 display-inline-block">Work</h2>
       <div class="flex-row justify-space-between">
       </div>
     </section>
+  
     </main>
     <footer class="container text-center py-3">
       <h3 class="text-dark">
