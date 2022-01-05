@@ -42,6 +42,5 @@ const writeFile = fileContent => {
 //-- Exporting functions for app.js to have access to
 
 module.exports = {
-    writeFile,
-    copyFile
+    writeFile
 };

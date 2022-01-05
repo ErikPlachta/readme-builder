@@ -9,7 +9,7 @@
 //-- Imports
 
 //-- grabbing functions from generate-site with object destructing
-const { writeFile, copyFile } = require('./utils/generate-readme.js');
+const {writeFile} = require('./utils/generate-readme.js');
 
 const inquirer = require('inquirer');
 const _generate_Readme = require('./src/readme-template.js');
@@ -33,9 +33,9 @@ const _get_User_Data = () => {
     */
 
     console.log(`
-      ======================
-      Enter User Information
-      ======================
+======================
+Enter User Information
+======================
     `);
     
     return inquirer
@@ -79,7 +79,7 @@ const _get_User_Data = () => {
             name: 'email',
             message: 'What is your email address? (Required)',
             validate: emailInput => {
-              if (nameInput) {
+              if (emailInput) {
                 return true;
               } else {
                 console.log('Please enter your email address!');
@@ -95,76 +95,78 @@ const _get_User_Data = () => {
 //-- Getting Readme Data
 
 const _get_Project_Data = user_Data => {
-    /* 
-        Uses inquirer.js to prompt user for README specific details.
-    */
+  /* 
+      Uses inquirer.js to prompt user for README specific details.
+  */
 
 
-    console.log(`
-      =========================
-      Enter Project Information
-      =========================
-    `);
+  console.log(`
+=========================
+Enter Project Information
+=========================
+  `);
 
-    return inquirer
-      .prompt([
-      
-      //-- Project Title
-      //-- TODO:: Add license options ( see issue #7)
-        {
-          type: 'input',
-          name: 'title',
-          message: 'Enter your Project Title (Required)',
-          validate: titleInput => {
-            if (titleInput) {
-              return true;
-            } else {
-              console.log('Please enter a Project Title!');
-              return false;
-            }
-            }
-        },
-        //-- Description
-        {
-          type: 'input',
-          name: 'description',
-          message: 'Enter your Project description (Required)',
-          validate: descriptionInput => {
-            if (descriptionInput) {
-              return true;
-            } else {
-              console.log('Please enter your Project Description!');
-              return false;
-            }
-            }
-        },
-        
-        //-- License
-        //-- TODO:: Allow only 1
-        {
-          type: 'checkbox',
-          name: 'license',
-          message: 'What type of license does your project use? (Required)',
-          choices: ['MIT', '1', '2', '3']
-        },
-        {
-          type: 'input',
-          name: 'license',
-          validate: licenseInput => {
-            if (licenseInput) {
-              return true;
-            } else {
-              console.log('Please enter your name!');
-              return false;
-            }
+  return inquirer
+    .prompt([
+    
+    //-- Project Title
+    //-- TODO:: Add license options ( see issue #7)
+      {
+        type: 'input',
+        name: 'title',
+        message: 'Enter your Project Title (Required)',
+        validate: titleInput => {
+          if (titleInput) {
+            return true;
+          } else {
+            console.log('Please enter a Project Title!');
+            return false;
           }
-        },
+          }
+      },
+      //-- Description
+      {
+        type: 'input',
+        name: 'description',
+        message: 'Enter your Project description (Required)',
+        validate: descriptionInput => {
+          if (descriptionInput) {
+            return true;
+          } else {
+            console.log('Please enter your Project Description!');
+            return false;
+          }
+          }
+      },
+      
+      //-- License
+      //-- TODO:: Allow only 1
+      {
+        type: 'checkbox',
+        name: 'license',
+        message: 'What type of license does your project use? (Required)',
+        choices: ['MIT', '1', '2', '3']
+      },
+      {
+        type: 'input',
+        name: 'license',
+        validate: licenseInput => {
+          if (licenseInput) {
+            return true;
+          } else {
+            console.log('Please enter your name!');
+            return false;
+          }
+        }
+      },
     ])
     .then( project_Data => {
-      portfolioData.projects.push(projectData);
+      readme_Data.project = project_Data;
+      readme_Data.user= user_Data;
 
+      return readme_Data;
     })
-    ;
+  ; //-- End of return statement
 };
 
 //----------------------------------------------------------------------------//
@@ -181,8 +183,8 @@ _get_User_Data()
   .then(_get_Project_Data)
   
   //-- Prepare data to build README.md based on results
-  .then( results => {
-    return _generate_Readme(results);
+  .then( readme_Data => {
+    return _generate_Readme(readme_Data);
   })
   
   //-- Write readme file to ./dist/README.md
@@ -191,10 +193,9 @@ _get_User_Data()
   })
 
   //-- If success, we take the writeFileResponse object provided by the writeFile()
-  // function's resolve() execution to log it, and then we return copyFile().
+  // function's resolve() execution to log it.
   .then(writeFileResponse => {
     console.log(writeFileResponse);
-    return copyFile();
   })
   //-- if it fails any-step along the way, catch error nd log here.
   .catch(err => {
