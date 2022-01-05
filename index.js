@@ -180,31 +180,39 @@ Enter Project Information
 //-- Running Program
 
 
-//-- Get user specific info
-_get_User_Data()
- 
-  //-- Get project specific info
-  .then(_get_Project_Data)
+function init() {
+  /*
+    Primary function that runs the program.
+  */
   
-  //-- Prepare data to build README.md based on results
-  .then( readme_Data => {
-    return _generate_Readme(readme_Data);
-  })
+  //-- Get user specific info
+  _get_User_Data()
   
-  //-- Write readme file to ./dist/README.md
-  .then( readme_SRC => {
-    return writeFile(readme_SRC);
-  })
+    //-- Get project specific info
+    .then(_get_Project_Data)
 
-  //-- If success, we take the writeFileResponse object provided by the writeFile()
-  // function's resolve() execution to log it.
-  .then(writeFileResponse => {
-    console.log(writeFileResponse);
-  })
-  //-- if it fails any-step along the way, catch error nd log here.
-  .catch(err => {
-    console.log("ERROR: ", err);
-  })
-;
+    //-- Prepare data to build README.md based on results
+    .then( readme_Data => {
+      return _generate_Readme(readme_Data);
+    })
 
+    //-- Write readme file to ./dist/README.md
+    .then( readme_SRC => {
+      return writeFile(readme_SRC);
+    })
 
+    //-- If success, we take the writeFileResponse object provided by the writeFile()
+    // function's resolve() execution to log it.
+    .then(writeFileResponse => {
+      console.log(writeFileResponse);
+    })
+    //-- if it fails any-step along the way, catch error nd log here.
+    .catch(err => {
+      console.log("ERROR: ", err);
+    })
+  ;
+
+};
+
+//-- Runs program
+init();
