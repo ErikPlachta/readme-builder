@@ -227,8 +227,8 @@ function init() {
         "installation" : undefined,
         "guidelines" : undefined,
         "useage" : undefined,
-        "tests" : undefined
-      }
+      }, 
+      'testing' : {}
     };
   
   //-- Get user specific info
