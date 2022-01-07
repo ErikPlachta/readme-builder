@@ -208,6 +208,23 @@ Enter Project Information
             }
         },
 
+        //-- Contribution
+        //TODO:: 01/07/2022 #EP || Add more contribution options
+        {
+          type: 'list',
+          name: 'contribution',
+          message: 'How would you like to handle contributions? ( required ): ',
+          choices: ['Contributor-Covenant','None'],
+          validate: guidelinesInput => {
+            if (guidelinesInput) {
+              return true;
+            } else {
+              console.log('Please enter your Project guidelines!');
+              return false;
+            }
+            }
+        },
+
     ])
   ; //-- End of return statement
 };

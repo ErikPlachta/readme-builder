@@ -80,6 +80,19 @@ const _get_License = readme_Data => {
   return license_Summary;
 }
 
+//TODO -- give user option to pick from this or type manually
+const _get_Contribution = project_Data => {
+  
+  if (project_Data.contributing === 'Contributor-Covenant'){
+    return `This Project abides by the Contributor Covenant. for more information,`
+    +`check out https://www.contributor-covenant.org/.`
+  } 
+  
+  //-- Whatever user picked/typed
+  else {
+    return `${project_Data.contributing}`
+  }
+}
 
 
 //----------------------------------------------------------------------------//
@@ -128,7 +141,7 @@ ${project_Data.tests}
 
 ## Contributing
 
-${project_Data.contributing}
+${_get_Contribution(project_Data)}
 
 ## Questions
     
