@@ -103,7 +103,6 @@ const _get_Project_Data = user_Data => {
       Uses inquirer.js to prompt user for README specific details.
   */
 
-
   console.log(`
 =========================
 Enter Project Information
