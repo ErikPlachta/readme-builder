@@ -26,6 +26,11 @@ const _generate_Readme = require('./src/readme-template.js');
 const _get_User_Data = () => {
     /* 
         Uses inquirer.js to prompt user specific details.
+
+        collecting the following values
+          name
+          github
+          email
     */
 
     console.log(`
@@ -92,11 +97,20 @@ Enter User Information
 
 
 //----------------------------------------------------------------------------//
-//-- Getting Readme Data
+//-- Getting Data about the project specifically.
 
 const _get_Project_Data = () => {
   /* 
       Uses inquirer.js to prompt user for README specific details.
+
+      collecting the following values
+        
+          license
+          title
+          description
+          installation
+          guidelines
+          useage
   */
 
 
@@ -108,7 +122,15 @@ Enter Project Information
 
   return inquirer
     .prompt([
-    
+      
+      //-- License assigned to project
+      //-- TODO:: 01/07/2022 #EP || Add more
+      {
+        type: 'list',
+        name: 'license',
+        message: 'Add a License:',
+        choices: ['None','ISC', 'MIT', 'GNU']
+      },
     //-- Project Title
       {
         type: 'input',
@@ -139,8 +161,35 @@ Enter Project Information
           }
       },
       
-      //-- License
-      //-- TODO:: Allow only 1
+    ])
+  ; //-- End of return statement
+};
+
+
+//----------------------------------------------------------------------------//
+//-- Getting Data about the project specifically.
+
+//-- TODO:: 01/07/2022 #EP || Build this out
+const _get_Tests = () => {
+  /* 
+      Uses inquirer.js to prompt user for README specific details.
+
+      collecting the following values
+
+        tests
+  */
+
+  console.log(`
+=========================
+Enter How to Test Your Project
+=========================
+  `);
+
+  return inquirer
+    .prompt([
+      
+      //-- License assigned to project
+      //-- TODO:: 01/07/2022 #EP || Add more
       {
         type: 'list',
         name: 'license',
@@ -150,6 +199,7 @@ Enter Project Information
     ])
   ; //-- End of return statement
 };
+
 
 //----------------------------------------------------------------------------//
 //-- Build Table of Contents
@@ -165,8 +215,20 @@ function init() {
 
     //-- Array that holds user and project data
     var readme_Data = {
-      'user_Data':{},
-      'project_Data': {}
+      'user_Data':{
+        'name' : undefined,
+        'github' : undefined,
+        'email' : undefined
+      },
+      'project_Data': {
+        "license" : undefined,
+        "title" : undefined,
+        "description" : undefined,
+        "installation" : undefined,
+        "guidelines" : undefined,
+        "useage" : undefined,
+        "tests" : undefined
+      }
     };
   
   //-- Get user specific info
