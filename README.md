@@ -1,7 +1,11 @@
 # A Professional README Generator with Node.js
 
-[How to create a Professional README](_ARCHIVE/readme-guide.md)
-
 ## Contributors
 
-### Erik Plachta
+### [Erik Plachta](https://github.com/ErikPlachta)
+
+- Reviewed concept, and re-built from the ground up.
+
+### [Xandromus](https://github.com/Xandromus)
+
+- Built the concept of the project.

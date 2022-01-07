@@ -1,5 +1,4 @@
 /*
-
     Purpose: Manage files with package FS
 */
 
@@ -8,7 +7,7 @@
 const fs = require('fs');
 
 //----------------------------------------------------------------------------//
-//-- Writing & Copying files
+//-- Writing README.md
 
 
 const writeFile = fileContent => {
@@ -31,7 +30,7 @@ const writeFile = fileContent => {
         */
         resolve({
           ok: true,
-          message: 'File created!'
+          message: 'README.md was created! \n\t ( See ./dist.README.md )'
         });
       });
     });
@@ -40,7 +39,6 @@ const writeFile = fileContent => {
 
 //----------------------------------------------------------------------------//
 //-- Exporting functions for app.js to have access to
-
 module.exports = {
     writeFile
 };

@@ -114,7 +114,6 @@ Enter Project Information
     .prompt([
     
     //-- Project Title
-    //-- TODO:: Add license options ( see issue #7)
       {
         type: 'input',
         name: 'title',
@@ -128,6 +127,7 @@ Enter Project Information
           }
           }
       },
+      
       //-- Description
       {
         type: 'input',
@@ -151,22 +151,10 @@ Enter Project Information
         message: 'Add a License:',
         choices: ['None','ISC', 'MIT', 'GNU']
       },
-      {
-        type: 'input',
-        name: 'license',
-        validate: licenseInput => {
-          if (licenseInput) {
-            return true;
-          } else {
-            console.log('Please enter your name!');
-            return false;
-          }
-        }
-      },
     ])
     .then( project_Data => {
-      readme_Data.project = project_Data;
-      readme_Data.user= user_Data;
+      readme_Data.project_Data = project_Data;
+      readme_Data.user_Data = user_Data;
 
       return readme_Data;
     })
@@ -180,31 +168,39 @@ Enter Project Information
 //-- Running Program
 
 
-//-- Get user specific info
-_get_User_Data()
- 
-  //-- Get project specific info
-  .then(_get_Project_Data)
+function init() {
+  /*
+    Primary function that runs the program.
+  */
   
-  //-- Prepare data to build README.md based on results
-  .then( readme_Data => {
-    return _generate_Readme(readme_Data);
-  })
+  //-- Get user specific info
+  _get_User_Data()
   
-  //-- Write readme file to ./dist/README.md
-  .then( readme_SRC => {
-    return writeFile(readme_SRC);
-  })
+    //-- Get project specific info
+    .then(_get_Project_Data)
 
-  //-- If success, we take the writeFileResponse object provided by the writeFile()
-  // function's resolve() execution to log it.
-  .then(writeFileResponse => {
-    console.log(writeFileResponse);
-  })
-  //-- if it fails any-step along the way, catch error nd log here.
-  .catch(err => {
-    console.log("ERROR: ", err);
-  })
-;
+    //-- Send data into template to build OBJ that will be used to write
+    .then( readme_Data => {
+      return _generate_Readme(readme_Data);
+    })
 
+    //-- Write readme file to ./dist/README.md
+    .then( readme_SRC => {
+      return writeFile(readme_SRC);
+    })
 
+    //-- If success, we take the writeFileResponse object provided by the writeFile()
+    // function's resolve() execution to log it.
+    .then(writeFileResponse => {
+      console.log(writeFileResponse);
+    })
+    //-- if it fails any-step along the way, catch error nd log here.
+    .catch(err => {
+      console.log("ERROR: ", err);
+    })
+  ;
+
+};
+
+//-- Runs program
+init();
