@@ -7,7 +7,7 @@
 [![GitHub Number of Languages](https://img.shields.io/github/languages/count/ErikPlachta/readme-builder-with-nodejs)](https://github.com/ErikPlachta/readme-builder-with-nodejs)
 [![GitHub top Language](https://img.shields.io/github/languages/top/ErikPlachta/readme-builder-with-nodejs)](https://github.com/ErikPlachta/readme-builder-with-nodejs)
 
-### Status
+### Stats
 
 
 [![GitHub issues](https://img.shields.io/github/issues/ErikPlachta/readme-builder-with-nodejs)](https://github.com/ErikPlachta/readme-builder-with-nodejs/issues)
@@ -19,8 +19,6 @@
 
 ### License
 [![GitHub license](https://img.shields.io/github/license/ErikPlachta/readme-builder-with-nodejs)](https://github.com/ErikPlachta/readme-builder-with-nodejs)
-
-
 
 
 ## Contributors

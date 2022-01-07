@@ -46,7 +46,7 @@ Enter User Information
         {
           type: 'input',
           name: 'name',
-          message: 'What is your name? (Required)',
+          message: 'What is your name? (Required): ',
           validate: nameInput => {
             if (nameInput) {
               return true;
@@ -61,7 +61,7 @@ Enter User Information
         {
             type: 'input',
             name: 'github',
-            message: 'Enter your GitHub Username (Required)',
+            message: 'Enter your GitHub Username (Required): ',
             validate: githubInput => {
                 if (githubInput) {
                 return true;
@@ -78,7 +78,7 @@ Enter User Information
         {
             type: 'input',
             name: 'email',
-            message: 'What is your email address? (Required)',
+            message: 'What is your email address? (Required): ',
             validate: function(email) {
               // Regex mail check (return true if valid mail)
               let valid_Email = /^(([^<>()\[\]\.,;:\s@\"]+(\.[^<>()\[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()\.,;\s@\"]+\.{0,1})+([^<>()\.,;:\s@\"]{2,}|[\d\.]+))$/.test(email);
@@ -135,7 +135,7 @@ Enter Project Information
       {
         type: 'input',
         name: 'title',
-        message: 'Enter your Project Title (Required)',
+        message: 'Enter your Project Title (Required): ',
         validate: titleInput => {
           if (titleInput) {
             return true;
@@ -150,7 +150,7 @@ Enter Project Information
       {
         type: 'input',
         name: 'description',
-        message: 'Enter your Project description (Required)',
+        message: 'Enter your Project description (Required): ',
         validate: descriptionInput => {
           if (descriptionInput) {
             return true;
@@ -161,6 +161,54 @@ Enter Project Information
           }
       },
       
+      //-- Installation
+        // What are the steps required to install your project? Provide a step-by-step description of how to get the development environment running.
+        {
+          type: 'input',
+          name: 'installation',
+          message: 'Enter your installation instructions ( blank to skip ): ',
+          validate: installationInput => {
+            if (installationInput) {
+              return true;
+            } else {
+              console.log('Please enter your Project Installation Instructions!');
+              return false;
+            }
+            }
+        },
+        
+      //-- Gudielines
+        //-- 
+        {
+          type: 'input',
+          name: 'installation',
+          message: 'Enter your project guidelines ( blank to skip ): ',
+          validate: guidelinesInput => {
+            if (guidelinesInput) {
+              return true;
+            } else {
+              console.log('Please enter your Project guidelines!');
+              return false;
+            }
+            }
+        },
+
+      //-- Useage
+        // Provide instructions and examples for use. Include screenshots as needed.
+        {
+          type: 'input',
+          name: 'useage',
+          message: 'Enter how to use your project ( required ): ',
+          validate: guidelinesInput => {
+            if (guidelinesInput) {
+              return true;
+            } else {
+              console.log('Please enter your Project guidelines!');
+              return false;
+            }
+            }
+        },
+
     ])
   ; //-- End of return statement
 };
