@@ -32,47 +32,46 @@ module.exports = readme_Data => {
   //-- Build and then return dynamically
   return `# ${project_Data.title}
 
-  ## License
+## License
 
-  ${project_Data.license}
+${project_Data.license}
 
-  ### Description
+### Description
 
-  ${project_Data.description}
+${project_Data.description}
 
-  ---
+---
 
-  ---
+---
 
-  ## Table of Contents
-  
-  ${_get_TOC(readme_Data)}
-  
-  ---
-  
-  ---
+## Table of Contents
 
-  ## Installation
+${_get_TOC(readme_Data)}
 
-  ## Guidelines
+---
 
-  ## Useage
+---
 
-  ## Contributing
-  
-  ## Tests
-  
-  ## Questions
-      
-  Have feedback, suggestions, or general questions?
-  
-  Reach out to ${user_Data.name}!
-  - [GitHub.com/${user_Data.github}]("https://github.com/${user_Data.github}")
-  - ${user_Data.email}
-        
-  ---
-  
-  &copy; ${new Date().getFullYear()} by ${user_Data.name}
+## Installation
+
+## Guidelines
+
+## Useage
+
+## Contributing
+
+## Tests
+
+## Questions
     
-  `;
+Have feedback, suggestions, or general questions?
+
+Reach out to ${user_Data.name}!
+- [GitHub.com/${user_Data.github}]("https://github.com/${user_Data.github}")
+- ${user_Data.email}
+      
+---
+
+&copy; ${new Date().getFullYear()} by ${user_Data.name}
+`;
 };

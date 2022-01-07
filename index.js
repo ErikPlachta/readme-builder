@@ -18,11 +18,7 @@ const _generate_Readme = require('./src/readme-template.js');
 //----------------------------------------------------------------------------//
 //-- Global Variables
 
-//-- Array that holds user and project data
-var readme_Data = {
-  'user_Data':{},
-  'project_Data': {}
-};
+
 
 //----------------------------------------------------------------------------//
 //-- Getting User Data
@@ -98,10 +94,11 @@ Enter User Information
 //----------------------------------------------------------------------------//
 //-- Getting Readme Data
 
-const _get_Project_Data = user_Data => {
+const _get_Project_Data = () => {
   /* 
       Uses inquirer.js to prompt user for README specific details.
   */
+
 
   console.log(`
 =========================
@@ -151,12 +148,6 @@ Enter Project Information
         choices: ['None','ISC', 'MIT', 'GNU']
       },
     ])
-    .then( project_Data => {
-      readme_Data.project_Data = project_Data;
-      readme_Data.user_Data = user_Data;
-
-      return readme_Data;
-    })
   ; //-- End of return statement
 };
 
@@ -171,12 +162,29 @@ function init() {
   /*
     Primary function that runs the program.
   */
+
+    //-- Array that holds user and project data
+    var readme_Data = {
+      'user_Data':{},
+      'project_Data': {}
+    };
   
   //-- Get user specific info
   _get_User_Data()
+
+    //-- then write userdata to array
+    .then( user_Data => {
+      readme_Data.user_Data = user_Data;
+    })
   
     //-- Get project specific info
     .then(_get_Project_Data)
+
+    .then( project_Data => {
+      readme_Data.project_Data = project_Data;
+
+      return readme_Data;
+    }) 
 
     //-- Send data into template to build OBJ that will be used to write
     .then( readme_Data => {
@@ -184,8 +192,8 @@ function init() {
     })
 
     //-- Write readme file to ./dist/README.md
-    .then( readme_SRC => {
-      return writeFile(readme_SRC);
+    .then( readme_Data => {
+      return writeFile(readme_Data);
     })
 
     //-- If success, we take the writeFileResponse object provided by the writeFile()
