@@ -180,7 +180,7 @@ Enter Project Information
         //-- 
         {
           type: 'input',
-          name: 'installation',
+          name: 'guidelines',
           message: 'Enter your project guidelines ( blank to skip ): ',
           // validate: guidelinesInput => {
           //   if (guidelinesInput) {
@@ -249,9 +249,6 @@ Enter How to Test Your Project
 
 
 //----------------------------------------------------------------------------//
-//-- Build Table of Contents
-
-//----------------------------------------------------------------------------//
 //-- Running Program
 
 
@@ -268,8 +265,8 @@ function init() {
         'email' : undefined
       },
       'project_Data': {
-        "license" : undefined,
         "title" : undefined,
+        "license" : undefined,
         "description" : undefined,
         "installation" : undefined,
         "guidelines" : undefined,

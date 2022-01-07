@@ -1,15 +1,11 @@
-# Erik Plachta
+# er
 
 ## License
-
-![GitHub license](https://img.shields.io/github/license/erikplachta/ErikPlachta)
-
-
-None
+![GitHub license](https://img.shields.io/github/license/erikplachta/er)None
 
 ### Description
 
-Test
+asdf
 
 ---
 
@@ -25,13 +21,24 @@ TOC Placeholder
 
 ## Installation
 
+df
+
 ## Guidelines
+a
+    
 
 ## Useage
 
-## Contributing
+j
+
 
 ## Tests
+
+undefined
+
+## Contributing
+
+undefined
 
 ## Questions
     
@@ -39,8 +46,9 @@ Have feedback, suggestions, or general questions?
 
 Reach out to Erik Plachta!
 - [GitHub.com/erikplachta]("https://github.com/erikplachta")
-- erik@posnation.com
+- erik@plachta.com
       
 ---
 
  &copy; 2022 by Erik Plachta
+
