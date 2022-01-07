@@ -1,25 +1,74 @@
 //----------------------------------------------------------------------------//
 //-- building the page
 
+const _get_TOC = sections_Dict => {
+  let results = 'TOC Placeholder';
+  
+  return results;
+};
+
+
+const _get_License = license_Selected => {
+  //-- based on selected license, return short summary and URL
+
+
+  const license_Dict = {
+    'NONE' : 'No license.',
+    'MIT' : 'mit',
+  }
+
+  return license_Summary;
+}
+
+
+
+//----------------------------------------------------------------------------//
+//-- RUNNING 
+
 module.exports = readme_Data => {
   // destructure page data by section
   const { user_Data, project_Data } = readme_Data;
 
+  //-- Build and then return dynamically
   return `# ${project_Data.title}
-
-  ### Description
-
-  ${project_Data.description}
 
   ## License
 
   ${project_Data.license}
 
-  ## About Me
+  ### Description
+
+  ${project_Data.description}
+
+  ---
+
+  ---
+
+  ## Table of Contents
+  
+  ${_get_TOC(readme_Data)}
+  
+  ---
+
+  ---
+
+  ## Installation
+
+  ## Guidelines
+
+  ## Useage
+
+  ## Contributing
+  
+  ## Tests
+  
+  ## Questions
       
-  - ${user_Data.name}
+  Have feedback, suggestions, or general questions?
+  
+  Reach out to ${user_Data.name}!
   - [GitHub.com/${user_Data.github}]("https://github.com/${user_Data.github}")
-  - Email: ${user_Data.email}
+  - ${user_Data.email}
         
   ---
   

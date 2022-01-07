@@ -114,7 +114,6 @@ Enter Project Information
     .prompt([
     
     //-- Project Title
-    //-- TODO:: Add license options ( see issue #7)
       {
         type: 'input',
         name: 'title',
@@ -128,6 +127,7 @@ Enter Project Information
           }
           }
       },
+      
       //-- Description
       {
         type: 'input',
