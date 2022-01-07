@@ -1,12 +1,15 @@
-# abcd
+# Erik Plachta
 
 ## License
+
+![GitHub license](https://img.shields.io/github/license/erikplachta/ErikPlachta)
+
 
 None
 
 ### Description
 
-dfd
+Test
 
 ---
 
@@ -34,10 +37,10 @@ TOC Placeholder
     
 Have feedback, suggestions, or general questions?
 
-Reach out to er!
-- [GitHub.com/ik]("https://github.com/ik")
-- er@ik.com
+Reach out to Erik Plachta!
+- [GitHub.com/erikplachta]("https://github.com/erikplachta")
+- erik@posnation.com
       
 ---
 
-&copy; 2022 by er
+ &copy; 2022 by Erik Plachta

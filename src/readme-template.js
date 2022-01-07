@@ -34,7 +34,7 @@ module.exports = readme_Data => {
 
 ## License
 
-[![GitHub license](https://img.shields.io/github/license/${user_Data.name}/${user_Data.github})](https://github.com/${user_Data.name}/${user_Data.github})
+![GitHub license](https://img.shields.io/github/license/${user_Data.github}/${project_Data.title.replace(/\s/g, '-')})
 
 
 ${project_Data.license}
@@ -76,5 +76,5 @@ Reach out to ${user_Data.name}!
 ---
 
  &copy; ${new Date().getFullYear()} by ${user_Data.name}
-`;
-};
+
+`;};

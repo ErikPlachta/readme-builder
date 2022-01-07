@@ -73,7 +73,6 @@ Enter User Information
         },
 
         //-- Email Address
-        //-- TODO:: Make sure it knows it's an email address
         //-- TODO:: Pull and add to proper section ( Issue #8)
         {
             type: 'input',
@@ -167,14 +166,14 @@ Enter Project Information
           type: 'input',
           name: 'installation',
           message: 'Enter your installation instructions ( blank to skip ): ',
-          validate: installationInput => {
-            if (installationInput) {
-              return true;
-            } else {
-              console.log('Please enter your Project Installation Instructions!');
-              return false;
-            }
-            }
+          // validate: installationInput => {
+          //   if (installationInput) {
+          //     return true;
+          //   } else {
+          //     console.log('Please enter your Project Installation Instructions!');
+          //     return false;
+          //   }
+          //   }
         },
         
       //-- Gudielines
@@ -183,14 +182,14 @@ Enter Project Information
           type: 'input',
           name: 'installation',
           message: 'Enter your project guidelines ( blank to skip ): ',
-          validate: guidelinesInput => {
-            if (guidelinesInput) {
-              return true;
-            } else {
-              console.log('Please enter your Project guidelines!');
-              return false;
-            }
-            }
+          // validate: guidelinesInput => {
+          //   if (guidelinesInput) {
+          //     return true;
+          //   } else {
+          //     console.log('Please enter your Project guidelines!');
+          //     return false;
+          //   }
+          //   }
         },
 
       //-- Useage
