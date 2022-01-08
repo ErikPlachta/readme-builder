@@ -97,7 +97,7 @@ const _get_Contribution = project_Data => {
   
   if (project_Data.Contributing === 'Contributor-Covenant'){
     return `This Project abides by the Contributor Covenant. 
-    > For more information, check out https://www.contributor-covenant.org/.`
+> For more information, check out https://www.contributor-covenant.org/.`
   } 
   else if (project_Data.Contributing === 'None'){
     return `This Project Does not accept contributions at this time.`
