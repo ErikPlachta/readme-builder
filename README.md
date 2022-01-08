@@ -25,6 +25,11 @@ Using Node.js to build a professional README.md dynamically based on user input.
 
 - For your convience, here is a [full video of running the app](./assets/images/useapp.mp4)
 
+<video width="320" height="240" controls>
+  <source src="./assets/images/useapp.mp4" type="video/mp4">
+Your browser does not support the video tag.
+</video>
+
 ### Requirements
 
 - [Node.js](https://nodejs.org/en/)
