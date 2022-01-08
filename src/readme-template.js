@@ -13,27 +13,40 @@
   5. Useage
   6. Test
   7. Contributing
-  8. Questions
+  8. Questions ( manually add to ToC)
 
 */
-const toc = {
-  "1. Title" : undefined,
-  "2. License" : undefined,
-  "3. Description" : undefined,  
-  "4. Installation" : undefined,
-  "5. Useage" : undefined,
-  "6. Test" : undefined,
-  "7. Contributing" : undefined,
-  "8. Questions" : undefined,
 
+function _set_TOC(project_Data, toc, TOC) {
+  //-- if values defined, add to index4
+
+  let location = 1;
+  for (section in toc){
+    
+    //-- the section has defined content within the user data
+    if(project_Data[toc[section]]){
+      TOC[location] = toc[section];
+      location = location +1;
+    }
+
+  };
+  return TOC;
 };
 
-const _get_TOC = sections_Dict => {
-  let results = 'TOC Placeholder';
+
+const _get_TOC = TOC => {
+  //-- Build TOC based on if values are defined
   
-  return results;
-};
+  toc_Formatted = [];
 
+  for (section in TOC) {
+    console.log(TOC[section])
+    //-- Build the ToC
+    toc_Formatted.push(`[${toc[section]}](#${toc[section].replace(/\s/g, '-')})`)
+  }
+  
+  return toc_Formatted;
+};
 
 //----------------------------------------------------------------------------//
 //-- Building section data
@@ -41,8 +54,8 @@ const _get_TOC = sections_Dict => {
 const _get_Guidelines = project_Data => {
   // -- If provided guidelines, build them.
 
+  console.log(project_Data.guidelines);
   if (project_Data.guidelines) {
-    toc[1] = '#guidelines';
     return `## Guidelines
 ${project_Data.guidelines}
     `
@@ -54,10 +67,6 @@ const _get_Useage = project_Data => {
 
   //-- if defined
   if (project_Data.useage) {
-    
-    //-- add to table of contents
-    toc[2]('#useage')
-    
     //-- return markdown content
     return `## Useage
 ${project_Data.useage}
@@ -68,6 +77,9 @@ ${project_Data.useage}
 
 // TODO:: 01/07/2022 #EP || Build these out
 const _get_License = readme_Data => {
+  
+  //-- Build README content
+  
   //-- based on selected license, return short summary and URL
   let { user_Data, project_Data } = readme_Data;
   return `![GitHub license](https://img.shields.io/github/license/${user_Data.github}/${project_Data.title.replace(/\s/g, '-')})`
@@ -87,7 +99,9 @@ const _get_Contribution = project_Data => {
     return `This Project abides by the Contributor Covenant. for more information,`
     +`check out https://www.contributor-covenant.org/.`
   } 
-  
+  else if (project_Data.contributing === 'None'){
+    return `This Project Does not accept contributions at this time.`
+  } 
   //-- Whatever user picked/typed
   else {
     return `${project_Data.contributing}`
@@ -100,8 +114,17 @@ const _get_Contribution = project_Data => {
 
 module.exports = readme_Data => {
   // destructure page data by section
-  const { user_Data, project_Data } = readme_Data;
+  const { user_Data, project_Data, toc } = readme_Data;
 
+  //-- Holds table of content
+  var TOC = {};
+  
+  
+  //-- Build ToC based on provided data
+  TOC = _set_TOC(project_Data,toc,TOC); 
+
+  console.log("project_Data: ", project_Data)
+  console.log("TOC: ", TOC)
   //-- Build and then return dynamically
   return `# ${project_Data.title}
 
@@ -117,8 +140,7 @@ ${project_Data.description}
 ---
 
 ## Table of Contents
-
-${_get_TOC(readme_Data)}
+${JSON.stringify(TOC)}
 
 ---
 

@@ -166,14 +166,6 @@ Enter Project Information
           type: 'input',
           name: 'installation',
           message: 'Enter your installation instructions ( blank to skip ): ',
-          // validate: installationInput => {
-          //   if (installationInput) {
-          //     return true;
-          //   } else {
-          //     console.log('Please enter your Project Installation Instructions!');
-          //     return false;
-          //   }
-          //   }
         },
         
       //-- Gudielines
@@ -182,14 +174,6 @@ Enter Project Information
           type: 'input',
           name: 'guidelines',
           message: 'Enter your project guidelines ( blank to skip ): ',
-          // validate: guidelinesInput => {
-          //   if (guidelinesInput) {
-          //     return true;
-          //   } else {
-          //     console.log('Please enter your Project guidelines!');
-          //     return false;
-          //   }
-          //   }
         },
 
       //-- Useage
@@ -198,8 +182,8 @@ Enter Project Information
           type: 'input',
           name: 'useage',
           message: 'Enter how to use your project ( required ): ',
-          validate: guidelinesInput => {
-            if (guidelinesInput) {
+          validate: useageInput => {
+            if (useageInput) {
               return true;
             } else {
               console.log('Please enter your Project guidelines!');
@@ -208,21 +192,21 @@ Enter Project Information
             }
         },
 
+        //-- Testing
+        //-- 
+        {
+          type: 'input',
+          name: 'testing',
+          message: 'Enter how to test this project ( blank to skip ): ',
+        },
+
         //-- Contribution
         //TODO:: 01/07/2022 #EP || Add more contribution options
         {
           type: 'list',
-          name: 'contribution',
-          message: 'How would you like to handle contributions? ( required ): ',
+          name: 'contributing',
+          message: 'How would you like to handle project contributions?: ',
           choices: ['Contributor-Covenant','None'],
-          validate: guidelinesInput => {
-            if (guidelinesInput) {
-              return true;
-            } else {
-              console.log('Please enter your Project guidelines!');
-              return false;
-            }
-            }
         },
 
     ])
@@ -288,8 +272,21 @@ function init() {
         "installation" : undefined,
         "guidelines" : undefined,
         "useage" : undefined,
+        'testing' : undefined,
+        'questions' :'questions',
+        'contributing' :'contributing',
       }, 
-      'testing' : {}
+      'toc' : {
+        1: 'title',
+        2: 'license',
+        3: 'description',
+        4: 'installation',
+        5: 'guidelines',
+        6: 'useage',
+        7: 'testing',
+        8: 'questions',
+        9: 'contributing'
+      }
     };
   
   //-- Get user specific info
@@ -304,8 +301,13 @@ function init() {
     .then(_get_Project_Data)
 
     .then( project_Data => {
+      
+      console.log(project_Data.guidelines)
+      
+      //-- Set Project data dict value
       readme_Data.project_Data = project_Data;
-
+      
+      //-- return dict updated
       return readme_Data;
     }) 
 
