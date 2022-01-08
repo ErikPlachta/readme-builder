@@ -1,8 +1,10 @@
 # erikplachta
   
-### Description
+## Description
 
 All about EP
+
+![GitHub license](https://img.shields.io/github/license/erikplachta/erikplachta)
 
 ---
 
@@ -10,39 +12,34 @@ All about EP
   
 ## Table of Contents
 
-1. [erikplachta](#erikplachta)
-2. [description](#description)
-3. [guidelines](#guidelines)
-4. [installation](#installation)
-5. [useage](#useage)
-6. [license](#license)
-7. [testing](#testing)
-8. [contributing](#contributing)
-9. [questions](#questions)
+1. [Title](#Title)
+2. [Description](#Description)
+3. [Guidelines](#Guidelines)
+4. [Installation](#Installation)
+5. [Useage](#Useage)
+6. [Test](#Test)
+7. [Contributing](#Contributing)
+8. [Questions](#Questions)
   
 ---
 
 ---
-  
-## License
-
-![GitHub license](https://img.shields.io/github/license/erikplachta/erikplachta)
 
 ## Installation
 
 Download REPO from GitHub, type `node i` to init
 
 ## Guidelines
+
 Use this repo to build a readme file
-    
 
 ## Useage
 
-useage
+useage guidlines go here
 
-## Tests
+## Testing
 
-undefined
+type `node index` in command
 
 ## Contributing
 
@@ -50,14 +47,13 @@ This Project abides by the Contributor Covenant.
     > For more information, check out https://www.contributor-covenant.org/.
 
 ## Questions
-    
-Have feedback, suggestions, or general questions?
 
-Reach out to Erik Plachta!
-- [GitHub.com/erikplachta]("https://github.com/erikplachta")
-- erik@plachta.com
+Have feedback, suggestions, or general questions?
+> You can reach out to me, Erik Plachta, on my 
+[GitHub]("https://github.com/erikplachta") or via email
+at erik@plachta.com.
       
 ---
 
- &copy; 2022 by Erik Plachta
+ &copy; 2022 by undefined
 

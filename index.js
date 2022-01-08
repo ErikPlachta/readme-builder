@@ -126,14 +126,14 @@ Enter Project Information
       //-- TODO:: 01/07/2022 #EP || Add more
       {
         type: 'list',
-        name: 'license',
+        name: 'License',
         message: 'Add a License:',
         choices: ['None','ISC', 'MIT', 'GNU']
       },
     //-- Project Title
       {
         type: 'input',
-        name: 'title',
+        name: 'Title',
         message: 'Enter your Project Title ( as appears on GitHub ): ',
         validate: input => {
           if (input) {
@@ -148,7 +148,7 @@ Enter Project Information
       //-- Description
       {
         type: 'input',
-        name: 'description',
+        name: 'Description',
         message: 'Enter your Project description: ',
         validate: input => {
           if (input) {
@@ -164,7 +164,7 @@ Enter Project Information
         // What are the steps required to install your project? Provide a step-by-step description of how to get the development environment running.
         {
           type: 'input',
-          name: 'installation',
+          name: 'Installation',
           message: 'Enter installation instructions (text summary) : ',
           validate: input => {
             if (input) {
@@ -180,7 +180,7 @@ Enter Project Information
         //-- 
         {
           type: 'input',
-          name: 'guidelines',
+          name: 'Guidelines',
           message: 'Enter your project guidelines: ',
           validate: input => {
             if (input) {
@@ -196,7 +196,7 @@ Enter Project Information
         // Provide instructions and examples for use. Include screenshots as needed.
         {
           type: 'input',
-          name: 'useage_summary',
+          name: 'Useage_summary',
           message: 'Enter a short summary of HOW to use the project ( syntax is next ): ',
           validate: input => {
             if (input) {
@@ -210,7 +210,7 @@ Enter Project Information
 
         {
           type: 'input',
-          name: 'useage_syntax',
+          name: 'Useage_syntax',
           message: 'Enter the syntax  ( required ): ',
           validate: input => {
             if (input) {
@@ -226,7 +226,7 @@ Enter Project Information
         //-- 
         {
           type: 'input',
-          name: 'testing',
+          name: 'Test',
           message: 'Enter how to test this project: ',
           validate: input => {
             if (input) {
@@ -242,7 +242,7 @@ Enter Project Information
         //TODO:: 01/07/2022 #EP || Add more contribution options
         {
           type: 'list',
-          name: 'contributing',
+          name: 'Contributing',
           message: 'How would you like to handle project contributions?: ',
           choices: ['Contributor-Covenant','None'],
         },
@@ -342,8 +342,6 @@ function init() {
 //-- Runs program
 // init();
 
-testing();
-
 
 //-- TESTING -----------------------------------------------------------------//
 
@@ -355,28 +353,27 @@ function testing(){
       'email' : 'erik@plachta.com'
     },
     'project_Data': {
-      'title': 'erikplachta',
-      'license': 'MIT',
-      'description': 'All about EP',
-      'guidelines': 'Use this repo to build a readme file',
-      'installation': 'Download REPO from GitHub, type `node i` to init',
-      'useage': 'useage guidlines go here',
-      'useage_summary': 'Run `node index` to get prompted on how to build a readme. Then retrieve readme from the `./dist` folder.',
-      'useage_syntax': '`node index`',
-      'testing': 'type `node index` in command',
-      'contributing': 'Contributor-Covenant',
-      'questions': 'questions'
+      'Title': 'erikplachta',
+      'License': 'MIT',
+      'Description': 'All about EP',
+      'Guidelines': 'Use this repo to build a readme file',
+      'Installation': 'Download REPO from GitHub, type `node i` to init',
+      'Useage': 'useage guidlines go here',
+      'Useage_summary': 'Run `node index` to get prompted on how to build a readme. Then retrieve readme from the `./dist` folder.',
+      'Useage_syntax': '`node index`',
+      'Test': 'type `node index` in command',
+      'Contributing': 'Contributor-Covenant',
+      'Questions': 'questions'
     },
     'toc': {
-      1: 'title',
-      2: 'description',
-      3: 'guidelines',
-      4: 'installation',
-      5: 'useage',
-      6: 'license',
-      7: 'testing',
-      8: 'contributing',
-      9: 'questions'
+      1: 'Title',
+      2: 'Description',
+      3: 'Guidelines',
+      4: 'Installation',
+      5: 'Useage',
+      6: 'Test',
+      7: 'Contributing',
+      8: 'Questions'
     }
   }
 
@@ -402,8 +399,6 @@ function testing(){
     // );
   };
   test_Functionality();
-  
-    
-
-
 }
+
+// testing();

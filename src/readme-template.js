@@ -4,18 +4,6 @@
 
 //----------------------------------------------------------------------------//
 //-- Build Table of Contents
-/*
-
-  1. title
-  2. License
-  3. Description
-  4. Installation
-  5. Useage
-  6. Test
-  7. Contributing
-  8. Questions ( manually add to ToC)
-
-*/
 
 function _set_TOC(project_Data, toc, TOC) {
   //-- if values defined, add to index4
@@ -67,10 +55,10 @@ const _get_Guidelines = project_Data => {
   // -- If provided guidelines, build them.
 
   // console.log(project_Data.guidelines);
-  if (project_Data.guidelines) {
+  if (project_Data.Guidelines) {
     return `## Guidelines
-${project_Data.guidelines}
-    `
+
+${project_Data.Guidelines}`
   }
 }
 
@@ -78,11 +66,13 @@ const _get_Useage = project_Data => {
   // -- If provided guidelines, build them.
 
   //-- if defined
-  if (project_Data.useage_summary) {
+  if (project_Data.Useage_summary) {
     //-- return markdown content
     return `## Useage
-${project_Data.useage_summary}
-     ${project_Data.useage_syntax}
+
+${project_Data.Useage_summary}
+
+${project_Data.Useage_syntax}
     `
   } 
 }
@@ -95,7 +85,7 @@ const _get_License = readme_Data => {
   
   //-- based on selected license, return short summary and URL
   let { user_Data, project_Data } = readme_Data;
-  return `![GitHub license](https://img.shields.io/github/license/${user_Data.github}/${project_Data.title.replace(/\s/g, '-')})`
+  return `![GitHub license](https://img.shields.io/github/license/${user_Data.github}/${project_Data.Title.replace(/\s/g, '-')})`
   // +`${project_Data.license}`
 
   const license_Dict = {
@@ -108,16 +98,16 @@ const _get_License = readme_Data => {
 //TODO -- give user option to pick from this or type manually
 const _get_Contribution = project_Data => {
   
-  if (project_Data.contributing === 'Contributor-Covenant'){
+  if (project_Data.Contributing === 'Contributor-Covenant'){
     return `This Project abides by the Contributor Covenant. 
     > For more information, check out https://www.contributor-covenant.org/.`
   } 
-  else if (project_Data.contributing === 'None'){
+  else if (project_Data.Contributing === 'None'){
     return `This Project Does not accept contributions at this time.`
   } 
   //-- Whatever user picked/typed
   else {
-    return `${project_Data.contributing}`
+    return `${project_Data.Contributing}`
   }
 }
 
@@ -136,14 +126,16 @@ module.exports = readme_Data => {
   //-- Build ToC based on provided data
   TOC = _set_TOC(project_Data,toc,TOC); 
 
-  console.log("project_Data: ", project_Data)
-  console.log("TOC: ", TOC)
+  // console.log("project_Data: ", project_Data)
+  // console.log("TOC: ", TOC)
   //-- Build and then return dynamically
-  return `# ${project_Data.title}
+  return `# ${project_Data.Title}
   
-### Description
+## Description
 
-${project_Data.description}
+${project_Data.Description}
+
+${_get_License(readme_Data)}
 
 ---
 
@@ -155,39 +147,34 @@ ${_get_TOC(TOC)}
 ---
 
 ---
-  
-## License
-
-${_get_License(readme_Data)}
 
 ## Installation
 
-${project_Data.installation}
+${project_Data.Installation}
 
 ${_get_Guidelines(project_Data)}
 
 ## Useage
 
-${project_Data.useage}
+${project_Data.Useage}
 
 ## Testing
 
-${project_Data.testing}
+${project_Data.Test}
 
 ## Contributing
 
 ${_get_Contribution(project_Data)}
 
 ## Questions
-    
-Have feedback, suggestions, or general questions?
 
-Reach out to ${user_Data.name}!
-- [GitHub.com/${user_Data.github}]("https://github.com/${user_Data.github}")
-- ${user_Data.email}
+Have feedback, suggestions, or general questions?
+> You can reach out to me, ${user_Data.name}, on my 
+[GitHub]("https://github.com/${user_Data.github}") or via email
+at ${user_Data.email}.
       
 ---
 
- &copy; ${new Date().getFullYear()} by ${user_Data.name}
+ &copy; ${new Date().getFullYear()} by ${user_Data.ame}
 
 `;};
