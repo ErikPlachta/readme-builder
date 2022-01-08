@@ -268,29 +268,28 @@ function init() {
         'email' : undefined
       },
       'project_Data': {
-        "title" : undefined,
-        "license" : undefined,
-        "description" : undefined,
-        "guidelines" : undefined,
-        "installation" : undefined,
+        "Title" : undefined,
+        "License" : undefined,
+        "Description" : undefined,
+        "Guidelines" : undefined,
+        "Installation" : undefined,
         //-- How to use it
-        'useage' : 'useage',
-        "useage_summary" : undefined,
-        "useage_syntax" : undefined,
-        'testing' : undefined,
-        'contributing' :'contributing',
-        'questions' :'questions'
+        'Useage' : 'Useage',
+        "Useage_summary" : undefined,
+        "Useage_syntax" : undefined,
+        'Testing' : undefined,
+        'Contributing' :'Contributing',
+        'Questions' :'Questions'
       }, 
       'toc' : {
-        1: 'title',
-        2: 'description',
-        3: 'guidelines',
-        4: 'installation',
-        5: 'useage',
-        6: 'license',
-        7: 'testing',
-        8: 'contributing',
-        9: 'questions'
+        1: 'Title',
+        2: 'Description',
+        3: 'Guidelines',
+        4: 'Installation',
+        5: 'Useage',
+        6: 'Testing',
+        8: 'Contributing',
+        9: 'Questions'
       }
     };
   
@@ -299,7 +298,7 @@ function init() {
 
     //-- then write userdata to array
     .then( user_Data => {
-      readme_Data.user_Data = Object.assign({},user_Data,readme_Data.user_Data);
+      readme_Data.user_Data = Object.assign({},readme_Data.user_Data, user_Data);
     })
   
     //-- Get project specific info
@@ -307,10 +306,8 @@ function init() {
 
     .then( project_Data => {
       
-      console.log(project_Data.guidelines)
-      
       //-- Set Project data dict value
-      readme_Data.project_Data = Object.assign({},readme_Data.project_Data,project_Data);
+      readme_Data.project_Data = Object.assign({},readme_Data.project_Data, project_Data);
       
       //-- return dict updated
       return readme_Data;
@@ -340,65 +337,4 @@ function init() {
 };
 
 //-- Runs program
-// init();
-
-
-//-- TESTING -----------------------------------------------------------------//
-
-function testing(){
-  const readme_Data = {
-    'user_Data':{
-      'name' : "Erik Plachta",
-      'github' : 'erikplachta',
-      'email' : 'erik@plachta.com'
-    },
-    'project_Data': {
-      'Title': 'erikplachta',
-      'License': 'MIT',
-      'Description': 'All about EP',
-      'Guidelines': 'Use this repo to build a readme file',
-      'Installation': 'Download REPO from GitHub, type `node i` to init',
-      'Useage': 'useage guidlines go here',
-      'Useage_summary': 'Run `node index` to get prompted on how to build a readme. Then retrieve readme from the `./dist` folder.',
-      'Useage_syntax': '`node index`',
-      'Test': 'type `node index` in command',
-      'Contributing': 'Contributor-Covenant',
-      'Questions': 'questions'
-    },
-    'toc': {
-      1: 'Title',
-      2: 'Description',
-      3: 'Guidelines',
-      4: 'Installation',
-      5: 'Useage',
-      6: 'Test',
-      7: 'Contributing',
-      8: 'Questions'
-    }
-  }
-
-  const test_Functionality = async () => {
-
-    let results = _generate_Readme(readme_Data)
-    
-    //-- Write readme file to ./dist/README.md
-    writeFile(results)
-    .then(response => console.log(response))
-
-    // console.log(response);
-      
-      //-- If success, we take the writeFileResponse object provided by the writeFile()
-      // function's resolve() execution to log it.
-    //   .then(writeFileResponse => {
-    //     console.log(writeFileResponse);
-    //   })
-    //   //-- if it fails any-step along the way, catch error nd log here.
-    //   .catch(err => {
-    //     console.log("ERROR: ", err);
-    //   }
-    // );
-  };
-  test_Functionality();
-}
-
-// testing();
+init();

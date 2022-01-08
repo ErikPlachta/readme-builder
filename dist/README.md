@@ -1,10 +1,10 @@
-# erikplachta
+# readme-builder-with-nodejs
   
 ## Description
 
-All about EP
+Using Node.js to build a professional README.md dynamically based on user input. Lets you quickly and easily generate a README file by using a node via the command-line. This allows the developers to quickly generated uniform READMEs for all projects.
 
-![GitHub license](https://img.shields.io/github/license/erikplachta/erikplachta)
+![GitHub license](https://img.shields.io/github/license/erikplachta/readme-builder-with-nodejs)
 
 ---
 
@@ -17,9 +17,8 @@ All about EP
 3. [Guidelines](#Guidelines)
 4. [Installation](#Installation)
 5. [Useage](#Useage)
-6. [Test](#Test)
-7. [Contributing](#Contributing)
-8. [Questions](#Questions)
+6. [Contributing](#Contributing)
+7. [Questions](#Questions)
   
 ---
 
@@ -27,19 +26,21 @@ All about EP
 
 ## Installation
 
-Download REPO from GitHub, type `node i` to init
+Download the repo to your local machine, path to the root folder, and type `node index` to start.
 
 ## Guidelines
 
-Use this repo to build a readme file
+You'll need to have Node.js and Inquirer.js installed locally to use this.
 
 ## Useage
 
-useage guidlines go here
+Download repo, path to folder, and run `node index` to build a README.md file.
+
+`node index`
 
 ## Testing
 
-type `node index` in command
+Simply try to run `node index` from the root folder of the app to see if it runs.
 
 ## Contributing
 
@@ -51,9 +52,8 @@ This Project abides by the Contributor Covenant.
 Have feedback, suggestions, or general questions?
 > You can reach out to me, Erik Plachta, on my 
 [GitHub]("https://github.com/erikplachta") or via email
-at erik@plachta.com.
-      
+at erik@noemail.com.
+
 ---
 
  &copy; 2022 by undefined
-

@@ -68,12 +68,9 @@ const _get_Useage = project_Data => {
   //-- if defined
   if (project_Data.Useage_summary) {
     //-- return markdown content
-    return `## Useage
+    return `${project_Data.Useage_summary}
 
-${project_Data.Useage_summary}
-
-${project_Data.Useage_syntax}
-    `
+${project_Data.Useage_syntax}`
   } 
 }
 
@@ -140,10 +137,10 @@ ${_get_License(readme_Data)}
 ---
 
 ---
-  
+
 ## Table of Contents
 ${_get_TOC(TOC)}
-  
+
 ---
 
 ---
@@ -156,7 +153,7 @@ ${_get_Guidelines(project_Data)}
 
 ## Useage
 
-${project_Data.Useage}
+${_get_Useage(project_Data)}
 
 ## Testing
 
@@ -172,9 +169,8 @@ Have feedback, suggestions, or general questions?
 > You can reach out to me, ${user_Data.name}, on my 
 [GitHub]("https://github.com/${user_Data.github}") or via email
 at ${user_Data.email}.
-      
+
 ---
 
  &copy; ${new Date().getFullYear()} by ${user_Data.ame}
-
 `;};
