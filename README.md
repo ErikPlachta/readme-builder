@@ -5,32 +5,49 @@
 Using Node.js to build a professional README.md dynamically based on user input.
 > Lets you quickly and easily generate a README file by using a node via the command-line. This allows the developers to quickly generated uniform READMEs for all projects.
 
-## Requirements
+## Index
+
+- [Useage](#useage)
+    - [Requirements](#requirements)
+    - [Installation](#installation)
+    - [Using The App](#using-the-app)
+    - [Starting the App](#starting-the-app)
+    - [Viewing Results](#viewing-results)
+    - [Repo Stats](#repo-stats)
+
+- [Contributors](#contributors)
+- [Questions?](#questions)
+
+
+## Usage
+
+> Below I've broken down app requirements, how to install, start, use, and then view the results of this app.
+
+- For your convience, here is a [full video of running the app](./assets/images/useapp.mp4)
+
+### Requirements
 
 - [Node.js](https://nodejs.org/en/)
 - [Inquierer.js](https://www.npmjs.com/package/inquirer)
-
-## Useage
 
 ### Installation
 
 > This app is designed to be ran locally. That means you'll need to download the repo.
 
-### Run the App
+### Starting The App
 
-[!Starting App]("./assets/images/start app.gif")
+<!-- ![Starting App](./assets/images/startapp.gif) -->
+<img src="./assets/images/startapp.gif" width="600">
 
-### Use the App
+### Using the App
 
-[!Using App]("./assets/images/use app.gif")
+<!-- ![Using App](./assets/images/useapp.gif) -->
+<img src="./assets/images/useapp.gif" width="600">
 
-### Results
+### Viewing Results
 
-[!Results Example]("./assets/images/results.gif")
-
-### Full Video
-
-[!Full Video]("./assets/images/use app.mp4")
+<!-- ![Results Example](./assets/images/results.gif) -->
+<img src="./assets/images/results.gif" width="600">
 
 ## Repo Stats
 
@@ -38,7 +55,6 @@ Using Node.js to build a professional README.md dynamically based on user input.
 
 [![GitHub Number of Languages](https://img.shields.io/github/languages/count/ErikPlachta/readme-builder-with-nodejs)](https://github.com/ErikPlachta/readme-builder-with-nodejs)
 [![GitHub top Language](https://img.shields.io/github/languages/top/ErikPlachta/readme-builder-with-nodejs)](https://github.com/ErikPlachta/readme-builder-with-nodejs)
-
 
 [![GitHub issues](https://img.shields.io/github/issues/ErikPlachta/readme-builder-with-nodejs)](https://github.com/ErikPlachta/readme-builder-with-nodejs/issues)
 
@@ -56,3 +72,7 @@ Using Node.js to build a professional README.md dynamically based on user input.
 ### [Xandromus](https://github.com/Xandromus)
 
 - Built the concept of the project.
+
+## Questions?
+
+> Feel free to contact me on my twitter  @ErikPlachta
