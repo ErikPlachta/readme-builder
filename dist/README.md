@@ -56,4 +56,4 @@ at erik@noemail.com.
 
 ---
 
- &copy; 2022 by undefined
+ &copy; 2022 by Erik Plachta
