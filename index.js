@@ -46,7 +46,7 @@ Enter User Information
         {
           type: 'input',
           name: 'name',
-          message: 'What is your name? (Required): ',
+          message: 'Your name: ',
           validate: nameInput => {
             if (nameInput) {
               return true;
@@ -61,7 +61,7 @@ Enter User Information
         {
             type: 'input',
             name: 'github',
-            message: 'Enter your GitHub Username (Required): ',
+            message: 'Your GitHub Username: ',
             validate: githubInput => {
                 if (githubInput) {
                 return true;
@@ -77,7 +77,7 @@ Enter User Information
         {
             type: 'input',
             name: 'email',
-            message: 'What is your email address? (Required): ',
+            message: 'Your email address ( for others to contact you ): ',
             validate: function(email) {
               // Regex mail check (return true if valid mail)
               let valid_Email = /^(([^<>()\[\]\.,;:\s@\"]+(\.[^<>()\[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()\.,;\s@\"]+\.{0,1})+([^<>()\.,;:\s@\"]{2,}|[\d\.]+))$/.test(email);
@@ -134,9 +134,9 @@ Enter Project Information
       {
         type: 'input',
         name: 'title',
-        message: 'Enter your Project Title (Required): ',
-        validate: titleInput => {
-          if (titleInput) {
+        message: 'Enter your Project Title ( as appears on GitHub ): ',
+        validate: input => {
+          if (input) {
             return true;
           } else {
             console.log('Please enter a Project Title!');
@@ -149,15 +149,15 @@ Enter Project Information
       {
         type: 'input',
         name: 'description',
-        message: 'Enter your Project description (Required): ',
-        validate: descriptionInput => {
-          if (descriptionInput) {
+        message: 'Enter your Project description: ',
+        validate: input => {
+          if (input) {
             return true;
           } else {
             console.log('Please enter your Project Description!');
             return false;
           }
-          }
+        }
       },
       
       //-- Installation
@@ -165,7 +165,15 @@ Enter Project Information
         {
           type: 'input',
           name: 'installation',
-          message: 'Enter your installation instructions ( blank to skip ): ',
+          message: 'Enter installation instructions (text summary) : ',
+          validate: input => {
+            if (input) {
+              return true;
+            } else {
+              console.log('Please enter your Project installation instructions!');
+              return false;
+            }
+          }
         },
         
       //-- Gudielines
@@ -173,23 +181,45 @@ Enter Project Information
         {
           type: 'input',
           name: 'guidelines',
-          message: 'Enter your project guidelines ( blank to skip ): ',
+          message: 'Enter your project guidelines: ',
+          validate: input => {
+            if (input) {
+              return true;
+            } else {
+              console.log('Please enter your Project guidelines!');
+              return false;
+            }
+          }
         },
 
       //-- Useage
         // Provide instructions and examples for use. Include screenshots as needed.
         {
           type: 'input',
-          name: 'useage',
-          message: 'Enter how to use your project ( required ): ',
-          validate: useageInput => {
-            if (useageInput) {
+          name: 'useage_summary',
+          message: 'Enter a short summary of HOW to use the project ( syntax is next ): ',
+          validate: input => {
+            if (input) {
               return true;
             } else {
-              console.log('Please enter your Project guidelines!');
+              console.log('Please enter your Project useage summary!');
               return false;
             }
             }
+        },
+
+        {
+          type: 'input',
+          name: 'useage_syntax',
+          message: 'Enter the syntax  ( required ): ',
+          validate: input => {
+            if (input) {
+              return true;
+            } else {
+              console.log('Please enter your Project useage syntax!');
+              return false;
+            }
+          }
         },
 
         //-- Testing
@@ -197,7 +227,15 @@ Enter Project Information
         {
           type: 'input',
           name: 'testing',
-          message: 'Enter how to test this project ( blank to skip ): ',
+          message: 'Enter how to test this project: ',
+          validate: input => {
+            if (input) {
+              return true;
+            } else {
+              console.log('Please enter your Project testing paramters!');
+              return false;
+            }
+          }
         },
 
         //-- Contribution
@@ -212,42 +250,6 @@ Enter Project Information
     ])
   ; //-- End of return statement
 };
-
-
-//----------------------------------------------------------------------------//
-//-- Getting Data about the project specifically.
-
-//-- TODO:: 01/07/2022 #EP || Build this out
-const _get_Tests = () => {
-  /* 
-      Uses inquirer.js to prompt user for README specific details.
-
-      collecting the following values
-
-        tests
-  */
-
-  console.log(`
-=========================
-Enter How to Test Your Project
-=========================
-  `);
-
-  return inquirer
-    .prompt([
-      
-      //-- License assigned to project
-      //-- TODO:: 01/07/2022 #EP || Add more
-      {
-        type: 'list',
-        name: 'license',
-        message: 'Add a License:',
-        choices: ['None','ISC', 'MIT', 'GNU']
-      },
-    ])
-  ; //-- End of return statement
-};
-
 
 //----------------------------------------------------------------------------//
 //-- Running Program
@@ -269,20 +271,23 @@ function init() {
         "title" : undefined,
         "license" : undefined,
         "description" : undefined,
-        "installation" : undefined,
         "guidelines" : undefined,
-        "useage" : undefined,
+        "installation" : undefined,
+        //-- How to use it
+        'useage' : 'useage',
+        "useage_summary" : undefined,
+        "useage_syntax" : undefined,
         'testing' : undefined,
         'contributing' :'contributing',
         'questions' :'questions'
       }, 
       'toc' : {
         1: 'title',
-        2: 'license',
-        3: 'description',
+        2: 'description',
+        3: 'guidelines',
         4: 'installation',
-        5: 'guidelines',
-        6: 'useage',
+        5: 'useage',
+        6: 'license',
         7: 'testing',
         8: 'contributing',
         9: 'questions'
@@ -335,4 +340,70 @@ function init() {
 };
 
 //-- Runs program
-init();
+// init();
+
+testing();
+
+
+//-- TESTING -----------------------------------------------------------------//
+
+function testing(){
+  const readme_Data = {
+    'user_Data':{
+      'name' : "Erik Plachta",
+      'github' : 'erikplachta',
+      'email' : 'erik@plachta.com'
+    },
+    'project_Data': {
+      'title': 'erikplachta',
+      'license': 'MIT',
+      'description': 'All about EP',
+      'guidelines': 'Use this repo to build a readme file',
+      'installation': 'Download REPO from GitHub, type `node i` to init',
+      'useage': 'useage guidlines go here',
+      'useage_summary': 'Run `node index` to get prompted on how to build a readme. Then retrieve readme from the `./dist` folder.',
+      'useage_syntax': '`node index`',
+      'testing': 'type `node index` in command',
+      'contributing': 'Contributor-Covenant',
+      'questions': 'questions'
+    },
+    'toc': {
+      1: 'title',
+      2: 'description',
+      3: 'guidelines',
+      4: 'installation',
+      5: 'useage',
+      6: 'license',
+      7: 'testing',
+      8: 'contributing',
+      9: 'questions'
+    }
+  }
+
+  const test_Functionality = async () => {
+
+    let results = _generate_Readme(readme_Data)
+    
+    //-- Write readme file to ./dist/README.md
+    writeFile(results)
+    .then(response => console.log(response))
+
+    // console.log(response);
+      
+      //-- If success, we take the writeFileResponse object provided by the writeFile()
+      // function's resolve() execution to log it.
+    //   .then(writeFileResponse => {
+    //     console.log(writeFileResponse);
+    //   })
+    //   //-- if it fails any-step along the way, catch error nd log here.
+    //   .catch(err => {
+    //     console.log("ERROR: ", err);
+    //   }
+    // );
+  };
+  test_Functionality();
+  
+    
+
+
+}

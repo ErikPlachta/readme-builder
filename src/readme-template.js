@@ -66,7 +66,7 @@ ${section}. [${TOC[section]}](#${TOC[section]})`;
 const _get_Guidelines = project_Data => {
   // -- If provided guidelines, build them.
 
-  console.log(project_Data.guidelines);
+  // console.log(project_Data.guidelines);
   if (project_Data.guidelines) {
     return `## Guidelines
 ${project_Data.guidelines}
@@ -78,10 +78,11 @@ const _get_Useage = project_Data => {
   // -- If provided guidelines, build them.
 
   //-- if defined
-  if (project_Data.useage) {
+  if (project_Data.useage_summary) {
     //-- return markdown content
     return `## Useage
-${project_Data.useage}
+${project_Data.useage_summary}
+     ${project_Data.useage_syntax}
     `
   } 
 }
@@ -108,8 +109,8 @@ const _get_License = readme_Data => {
 const _get_Contribution = project_Data => {
   
   if (project_Data.contributing === 'Contributor-Covenant'){
-    return `This Project abides by the Contributor Covenant. for more information,`
-    +`check out https://www.contributor-covenant.org/.`
+    return `This Project abides by the Contributor Covenant. 
+    > For more information, check out https://www.contributor-covenant.org/.`
   } 
   else if (project_Data.contributing === 'None'){
     return `This Project Does not accept contributions at this time.`
@@ -139,10 +140,7 @@ module.exports = readme_Data => {
   console.log("TOC: ", TOC)
   //-- Build and then return dynamically
   return `# ${project_Data.title}
-
-## License
-${_get_License(readme_Data)}
-
+  
 ### Description
 
 ${project_Data.description}
@@ -150,13 +148,17 @@ ${project_Data.description}
 ---
 
 ---
-
+  
 ## Table of Contents
 ${_get_TOC(TOC)}
-
+  
 ---
 
 ---
+  
+## License
+
+${_get_License(readme_Data)}
 
 ## Installation
 
@@ -168,10 +170,9 @@ ${_get_Guidelines(project_Data)}
 
 ${project_Data.useage}
 
+## Testing
 
-## Tests
-
-${project_Data.tests}
+${project_Data.testing}
 
 ## Contributing
 
