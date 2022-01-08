@@ -172,5 +172,5 @@ at ${user_Data.email}.
 
 ---
 
- &copy; ${new Date().getFullYear()} by ${user_Data.ame}
+ &copy; ${new Date().getFullYear()} by ${user_Data.name}
 `;};
