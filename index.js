@@ -294,7 +294,7 @@ function init() {
 
     //-- then write userdata to array
     .then( user_Data => {
-      readme_Data.user_Data = user_Data;
+      readme_Data.user_Data = Object.assign({},user_Data,readme_Data.user_Data);
     })
   
     //-- Get project specific info
@@ -305,7 +305,7 @@ function init() {
       console.log(project_Data.guidelines)
       
       //-- Set Project data dict value
-      readme_Data.project_Data = project_Data;
+      readme_Data.project_Data = Object.assign({},readme_Data.project_Data,project_Data);
       
       //-- return dict updated
       return readme_Data;
