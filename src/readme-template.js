@@ -25,8 +25,19 @@ function _set_TOC(project_Data, toc, TOC) {
     
     //-- the section has defined content within the user data
     if(project_Data[toc[section]]){
-      TOC[location] = toc[section];
-      location = location +1;
+
+      //-- if title of project as header
+      if (toc[section] === 'title'){
+        //-- remove spaces between letters and assign to actual title of project
+        TOC[location] = (project_Data[toc[section]].replace(/\s/g, '-')).toLowerCase();
+        location = location +1;
+      }
+
+      //-- all other section titles don't change
+      else {
+        TOC[location] = toc[section];
+        location = location +1;
+      }
     }
 
   };
@@ -84,7 +95,7 @@ const _get_License = readme_Data => {
   //-- based on selected license, return short summary and URL
   let { user_Data, project_Data } = readme_Data;
   return `![GitHub license](https://img.shields.io/github/license/${user_Data.github}/${project_Data.title.replace(/\s/g, '-')})`
-  +`${project_Data.license}`
+  // +`${project_Data.license}`
 
   const license_Dict = {
     'NONE' : 'No license.',
