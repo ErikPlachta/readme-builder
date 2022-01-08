@@ -360,7 +360,7 @@ function testing(){
       'description': 'All about EP',
       'guidelines': 'Use this repo to build a readme file',
       'installation': 'Download REPO from GitHub, type `node i` to init',
-      'useage': 'useage',
+      'useage': 'useage guidlines go here',
       'useage_summary': 'Run `node index` to get prompted on how to build a readme. Then retrieve readme from the `./dist` folder.',
       'useage_syntax': '`node index`',
       'testing': 'type `node index` in command',

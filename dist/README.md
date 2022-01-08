@@ -10,7 +10,7 @@ All about EP
   
 ## Table of Contents
 
-1. [Erik Plachta](#erikplachta)
+1. [erikplachta](#erikplachta)
 2. [description](#description)
 3. [guidelines](#guidelines)
 4. [installation](#installation)
@@ -46,7 +46,8 @@ undefined
 
 ## Contributing
 
-This Project abides by the Contributor Covenant. for more information,check out https://www.contributor-covenant.org/.
+This Project abides by the Contributor Covenant. 
+    > For more information, check out https://www.contributor-covenant.org/.
 
 ## Questions
     
