@@ -14,7 +14,7 @@ Using Node.js to build a professional README.md dynamically based on user input.
     - [Starting the App](#starting-the-app)
     - [Viewing Results](#viewing-results)
     - [Repo Stats](#repo-stats)
-
+    - [Video of Full Process](#video-of-full-process)
 - [Contributors](#contributors)
 - [Questions?](#questions)
 
@@ -22,13 +22,6 @@ Using Node.js to build a professional README.md dynamically based on user input.
 ## Usage
 
 > Below I've broken down app requirements, how to install, start, use, and then view the results of this app.
-
-- For your convience, here is a [full video of running the app](./assets/images/useapp.mp4)
-
-<video width="320" height="240" controls>
-  <source src="./assets/images/useapp.mp4" type="video/mp4">
-Your browser does not support the video tag.
-</video>
 
 ### Requirements
 
@@ -53,6 +46,13 @@ Your browser does not support the video tag.
 
 <!-- ![Results Example](./assets/images/results.gif) -->
 <img src="./assets/images/results.gif" width="600">
+
+
+### Video of Full Process
+
+- For your convience, here is a video/gif of the full process
+<!-- ![full process of using and results](./assets/full.gif) -->
+<img src="./assets/images/full.gif" width="600">
 
 ## Repo Stats
 
