@@ -37,15 +37,16 @@ function _set_TOC(project_Data, toc, TOC) {
 const _get_TOC = TOC => {
   //-- Build TOC based on if values are defined
   
-  toc_Formatted = [];
+  TOC_Formatted = null;
 
   for (section in TOC) {
-    console.log(TOC[section])
+    // console.log(TOC[section])
     //-- Build the ToC
-    toc_Formatted.push(`[${toc[section]}](#${toc[section].replace(/\s/g, '-')})`)
+    TOC_Formatted = TOC_Formatted + `<br />${section}. [${TOC[section]}](#${TOC[section]})`;
+    
   }
   
-  return toc_Formatted;
+  return TOC_Formatted;
 };
 
 //----------------------------------------------------------------------------//
@@ -140,7 +141,8 @@ ${project_Data.description}
 ---
 
 ## Table of Contents
-${JSON.stringify(TOC)}
+
+${JSON.stringify(_get_TOC(TOC))}
 
 ---
 

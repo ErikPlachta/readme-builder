@@ -273,8 +273,8 @@ function init() {
         "guidelines" : undefined,
         "useage" : undefined,
         'testing' : undefined,
-        'questions' :'questions',
         'contributing' :'contributing',
+        'questions' :'questions'
       }, 
       'toc' : {
         1: 'title',
@@ -284,8 +284,8 @@ function init() {
         5: 'guidelines',
         6: 'useage',
         7: 'testing',
-        8: 'questions',
-        9: 'contributing'
+        8: 'contributing',
+        9: 'questions'
       }
     };
   
