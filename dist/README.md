@@ -9,7 +9,7 @@ Using Node.js to build a professional README.md dynamically based on user input.
 ---
 
 ---
-  
+
 ## Table of Contents
 
 1. [Title](#Title)
@@ -19,14 +19,14 @@ Using Node.js to build a professional README.md dynamically based on user input.
 5. [Useage](#Useage)
 6. [Contributing](#Contributing)
 7. [Questions](#Questions)
-  
+
 ---
 
 ---
 
 ## Installation
 
-Download the repo to your local machine, path to the root folder, and type `node index` to start.
+Download the repo to your local machine, path to the root folder, and type node index to start.
 
 ## Guidelines
 
@@ -34,18 +34,18 @@ You'll need to have Node.js and Inquirer.js installed locally to use this.
 
 ## Useage
 
-Download repo, path to folder, and run `node index` to build a README.md file.
+Download repo, path to folder, and run node index to build a README.md file.
 
-`node index`
+Run `node index` in the terminal
 
 ## Testing
 
-Simply try to run `node index` from the root folder of the app to see if it runs.
+Simply try to run node index from the root folder of the app to see if it runs.
 
 ## Contributing
 
 This Project abides by the Contributor Covenant. 
-    > For more information, check out https://www.contributor-covenant.org/.
+> For more information, check out https://www.contributor-covenant.org/.
 
 ## Questions
 
