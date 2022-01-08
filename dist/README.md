@@ -25,6 +25,7 @@ All about EP
 ---
   
 ## License
+
 ![GitHub license](https://img.shields.io/github/license/erikplachta/erikplachta)
 
 ## Installation
